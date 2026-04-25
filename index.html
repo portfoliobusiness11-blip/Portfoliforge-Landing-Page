@@ -15,16 +15,15 @@
     .nav-logo { font-weight: 600; font-size: 1.1rem; }
     .nav-cta { background: var(--black); color: var(--white); padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
     .hero { padding: 8rem 2rem 6rem; text-align: center; }
-    .hero h1 { font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; }
-    .hero-sub { font-size: 1.35rem; color: var(--gray); margin-bottom: 1rem; }
-    .hero-support { font-size: 1.1rem; color: var(--gray); max-width: 520px; margin: 0 auto 2rem; }
-    .btn-primary { display: inline-block; background: var(--black); color: var(--white); padding: 1rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
-    .btn-primary:hover { background: var(--accent); }
+    .hero h1 { font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
+    .hero-sub { font-size: 1.35rem; color: var(--gray); margin-bottom: 1.5rem; }
+    .btn-primary { display: inline-block; background: var(--black); color: var(--white); padding: 1rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.2s; }
+    .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
     .hero-note { margin-top: 1rem; font-size: 0.85rem; color: var(--gray); }
     section { padding: 4rem 2rem; }
     section h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 1.25rem; text-align: center; }
-    .problem, .insight, .what-you-get { background: var(--light); border-radius: 12px; padding: 3rem 2rem; margin: 0 2rem; }
-    .problem p, .insight p, .what-you-get p { margin-bottom: 1rem; color: #333; }
+    .what-you-get { background: var(--light); border-radius: 12px; padding: 3rem 2rem; margin: 0 2rem; }
+    .what-you-get p { margin-bottom: 1rem; color: #333; }
     .benefits-list { list-style: none; margin: 2rem 0; }
     .benefits-list li { margin-bottom: 1rem; padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; }
     .what-note { font-size: 0.95rem; color: var(--gray); font-style: italic; }
@@ -43,22 +42,13 @@
     .cta { padding: 5rem 2rem; text-align: center; }
     .cta h2 { font-size: 2.25rem; }
     .cta p { font-size: 1.1rem; color: var(--gray); max-width: 500px; margin: 0 auto 1rem; }
-    /* Gallery Section */
     .gallery { background: var(--light); border-radius: 12px; padding: 3rem 2rem; margin: 0 2rem 4rem; }
     .gallery h2 { text-align: center; }
     .gallery-intro { text-align: center; color: var(--gray); margin-bottom: 2rem; }
     .gallery-scroll { display: flex; gap: 1rem; overflow-x: auto; padding: 0.5rem; }
-    .gallery-item { 
-      flex: 0 0 250px; 
-      height: 200px; 
-      border-radius: 8px; 
-      overflow: hidden; 
-      cursor: pointer; 
-      transition: transform 0.2s ease; 
-    }
+    .gallery-item { flex: 0 0 250px; height: 200px; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.2s ease; }
     .gallery-item:hover { transform: scale(1.03); }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-    /* Lightbox with carousel */
     .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10000; align-items: center; justify-content: center; }
     .lightbox.active { display: flex; }
     .lightbox-container { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
@@ -69,7 +59,6 @@
     .lightbox-prev { left: 20px; }
     .lightbox-next { right: 20px; }
     .lightbox-counter { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.6); font-size: 0.9rem; }
-    /* Form */
     .form-section { background: var(--light); border-radius: 12px; padding: 3rem 2rem; margin: 0 2rem 4rem; }
     .form-content { max-width: 600px; margin: 0 auto; }
     .form-content h2 { font-size: 1.5rem; }
@@ -81,8 +70,10 @@
       .hero h1 { font-size: 1.75rem; }
       .hero-sub { font-size: 1.15rem; }
       .steps { grid-template-columns: 1fr; }
-      .problem, .insight, .what-you-get, .process, .form-section, .gallery { margin: 0 1rem; }
+      .what-you-get, .process, .form-section, .gallery { margin: 0 1rem; }
       .gallery-item { flex: 0 0 200px; height: 160px; }
+      #transformation > div:first-child h2 { font-size: 1.5rem; }
+      #transformation > div:nth-child(2) { grid-template-columns: 1fr !important; gap: 1rem !important; }
     }
   </style>
 </head>
@@ -94,50 +85,82 @@
     </nav>
 
     <section class="hero">
-      <h1>Not getting clients from your portfolio?</h1>
-      <p class="hero-sub">Here's the truth: Gut reactions matter the most. People decide in 8 seconds if you're worth their time</p>
-      <p class="hero-support">Most freelancers have the skills. They just suck at showing it in a way that makes clients trust them enough to hire.</p>
-      <a href="#form" class="btn-primary">Get your free portfolio preview</a>
+      <h1>Your portfolio looks good… but it's not getting you clients.</h1>
+      <p class="hero-sub">Clients decide in seconds. If your portfolio doesn't build trust instantly, they move on.</p>
+      <a href="#form" class="btn-primary">See how your portfolio should look (free)</a>
       <p class="hero-note">Takes 2 minutes. No catch.</p>
     </section>
 
-    <section class="problem">
-      <h2>Why you're not getting clients.</h2>
-      <p>Clients skim. They have 50 other freelancers to compare you with. That's why you need results fast.</p>
-      <p>If your portfolio doesn't immediately build trust and show results, you're losing clients to people who are just okay at design but present themselves way better.</p>
-    </section>
-
-    <section class="insight">
-      <h2>This isn't about skill</h2>
-      <p>The good news: small presentation changes = huge perception shifts.</p>
-      <p>You don't need to be the best designer. You need to look like you're the safest choice out there.</p>
-      <p>I've reviewed 80+ portfolios. The patterns are always the same. And they're usually an easy fix.</p>
+    <section id="transformation" style="padding: 5rem 2rem; max-width: 900px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.2;">Your portfolio is losing you clients</h2>
+        <p style="font-size: 1.1rem; color: #6b6b6b; max-width: 520px; margin: 0 auto;">It's not your skill. It's how you present it.</p>
+      </div>
+      <div style="display: flex; gap: 1.5rem; margin-bottom: 2rem; align-items: stretch;">
+        <div style="flex: 1; background: #fff; border: 1px solid #fecaca; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(220,38,38,0.08); display: flex; flex-direction: column;">
+          <div style="background: #fef2f2; padding: 0.75rem 1.25rem; border-bottom: 1px solid #fecaca;">
+            <span style="color: #dc2626; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Before</span>
+          </div>
+          <div style="height: 200px; display: flex; align-items: center; justify-content: center; background: #fef2f2;">
+            <img src="https://agent-cdn.minimax.io/mcp/cdn_upload/499959933730684929/387064998285583/1777086163_f1685fb8.png" alt="Before" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
+          </div>
+          <div style="padding: 1.25rem;">
+            <ul style="list-style: none; margin: 0; padding: 0;">
+              <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative; color: #6b6b6b; font-size: 0.9rem;">❌ Gets ignored</li>
+              <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative; color: #6b6b6b; font-size: 0.9rem;">❌ Doesn't build trust</li>
+              <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative; color: #6b6b6b; font-size: 0.9rem;">❌ Looks cheap</li>
+            </ul>
+          </div>
+        </div>
+        <div style="flex: 1; background: #fff; border: 2px solid #2563eb; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 40px rgba(37,99,235,0.2); transform: scale(1.02); display: flex; flex-direction: column;">
+          <div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); padding: 0.75rem 1.25rem; border-bottom: 1px solid #bfdbfe;">
+            <span style="color: #2563eb; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">After</span>
+          </div>
+          <div style="height: 200px; display: flex; align-items: center; justify-content: center; background: #eff6ff;">
+            <img src="https://agent-cdn.minimax.io/mcp/cdn_upload/499959933730684929/387064998285583/1777086173_9b452be5.png" alt="After" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
+          </div>
+          <div style="padding: 1.25rem;">
+            <ul style="list-style: none; margin: 0; padding: 0;">
+              <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative; color: #6b6b6b; font-size: 0.9rem;">✅ Makes you look like a top freelancer</li>
+              <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative; color: #6b6b6b; font-size: 0.9rem;">✅ Builds trust in seconds</li>
+              <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative; color: #6b6b6b; font-size: 0.9rem;">✅ Turns visitors into paying clients</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <p style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a;">Same skills. Better presentation = more clients</p>
+      </div>
+      <div style="text-align: center;">
+        <a href="#form" style="display: inline-block; background: #2563eb; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.75rem;">See Your Free Preview</a>
+        <p style="font-size: 0.85rem; color: #6b6b6b;">I'll show you exactly how to improve it—even if you don't buy anything</p>
+      </div>
     </section>
 
     <section class="what-you-get">
       <h2>What you'll get</h2>
       <ul class="benefits-list">
-        <li>✓ A personalized portfolio review (not a generic template)</li>
-        <li>✓ Honest feedback on what's hurting your conversions</li>
-        <li>✓ A preview showing how it could be improved</li>
+        <li>✓ A breakdown of what's costing you clients</li>
+        <li>✓ Honest, direct feedback (no fluff)</li>
+        <li>✓ A redesigned preview of your portfolio</li>
       </ul>
-      <p class="what-note">You see real value before paying anything. That's the point.</p>
+      <p class="what-note">You see real value before paying anything.</p>
     </section>
 
     <section class="testimonials">
       <h2>What freelancers say</h2>
       <div class="test-grid">
         <div class="test-card">
-          <p>"I had good work but my portfolio looked like every other designer. The review showed me exactly what to fix. Within 2 weeks I landed a $3k project."</p>
-          <cite>— Designer from Dribbble</cite>
+          <p>"I didn't realize my portfolio was the issue until I saw the preview. It actually helped."</p>
+          <cite>— Designer</cite>
         </div>
         <div class="test-card">
-          <p>"Didn't think my portfolio was the issue until I saw the preview. Changed 3 things, got my first inquiry the next day. Coincidence? Probably not."</p>
-          <cite>— Developer from Upwork</cite>
+          <p>"Within 2 weeks I landed a $3k project after making 3 small changes."</p>
+          <cite>— Developer</cite>
         </div>
         <div class="test-card">
-          <p>"Straight to the point. No fluff. Got exactly what I needed to hear, not what I wanted to hear. That's why it worked."</p>
-          <cite>— Freelancer from Twitter</cite>
+          <p>"Straight to the point. That's why it worked."</p>
+          <cite>— Freelancer</cite>
         </div>
       </div>
     </section>
@@ -148,24 +171,24 @@
         <div class="step">
           <span class="step-num">1</span>
           <h3>Fill out a quick form</h3>
-          <p>2 minutes. Link to your portfolio. That's it.</p>
+          <p>2 minutes. Link to your portfolio.</p>
         </div>
         <div class="step">
           <span class="step-num">2</span>
-          <h3>I review your portfolio</h3>
-          <p>I'll look at everything with fresh eyes and note what's working vs what's not.</p>
+          <h3>I review it</h3>
+          <p>Fresh eyes. Honest feedback.</p>
         </div>
         <div class="step">
           <span class="step-num">3</span>
-          <h3>You get a custom preview</h3>
-          <p>See exactly how it could look with improvements. Then decide if you want the full version.</p>
+          <h3>You get a preview</h3>
+          <p>See exactly how it could look.</p>
         </div>
       </div>
     </section>
 
     <section class="gallery">
       <h2>Sample Reviews</h2>
-      <p class="gallery-intro">Click any image to view • Use arrows or arrow keys to navigate</p>
+      <p class="gallery-intro">Click any image to view • Use arrows to navigate</p>
       <div class="gallery-scroll">
         <div class="gallery-item" onclick="openLightbox(0)">
           <img src="https://agent-cdn.minimax.io/mcp/cdn_upload/499959933730684929/387064998285583/1776310797_03a88c31.png" alt="Portfolio Review 1">
@@ -186,10 +209,9 @@
     </section>
 
     <section class="cta">
-      <h2>Curious?</h2>
-      <p>Fill out the form. You'll get immediate value, even if you don't buy anything.</p>
-      <p>The worst case: you learn something useful for free.</p>
-      <a href="#form" class="btn-primary">Get your free portfolio preview</a>
+      <h2>Want to see what your portfolio could look like?</h2>
+      <p>I'll show you exactly how to improve it—even if you don't buy anything.</p>
+      <a href="#form" class="btn-primary">See Your Free Preview</a>
     </section>
 
     <section id="form" class="form-section">
@@ -207,7 +229,6 @@
     </footer>
   </div>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
     <button class="lightbox-nav lightbox-prev" onclick="prevImage(event)">&#8249;</button>
